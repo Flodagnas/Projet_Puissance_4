@@ -124,6 +124,7 @@ class Puissance4{
     }
 
     public static void main (String [] Argv ){
+        
         int nbColonnes = 7 ; // <=> largeur , abscisse ( x )
         int nbLignes = 6 ; // <=> hauteur , ordonnee ( y )
         int [][] plateau = new int [ nbColonnes ] [ nbLignes ] ;
@@ -153,8 +154,9 @@ class Puissance4{
 
             System.out.println ( "Joueur 1 : choisissez le colonne où vous voulez placer le jeton " ) ;
             int numColonne = Saisie.litentier();
+            int colonne = numColonne-1;
             if (hauteur[numColonne-1] > 5){
-                System.out.println ( "Joueur 1 : la colonne" +numColonne-1+ "est pleine! Choisissez une autre colonne") ;
+                System.out.println ( "Joueur 1 : la colonne" +colonne+ "est pleine! Choisissez une autre colonne") ;
                 numColonne= Saisie.litentier();
                 plateau [hauteur[numColonne-1]] [numColonne-1] = J1;
                 gui.rafraichirCase ( hauteur[numColonne-1] , numColonne-1) ;
@@ -171,7 +173,7 @@ class Puissance4{
             System.out.println ( "Joueur 2 : choisissez le colonne où vous voulez placer le jeton " ) ;
             numColonne= Saisie.litentier();
             if (hauteur[numColonne-1] > 5){
-                System.out.println ( "Joueur 2 : la colonne" +numColonne-1+" est pleine!choisissez une autre colonne") ;
+                System.out.println ( "Joueur 2 : la colonne" +colonne+" est pleine!choisissez une autre colonne") ;
                 numColonne = Saisie.litentier();
                 plateau [hauteur[numColonne-1]] [numColonne-1] = J2;
                 hauteur[numColonne-1] = hauteur[numColonne-1]+1;
