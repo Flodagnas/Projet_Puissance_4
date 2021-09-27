@@ -8,31 +8,28 @@ public class Main {
 		Scanner scanner = new Scanner(System.in);
 		
 		int N = 4;
-		int C = 7;
+		int C = 8;
 		int L = 6;
 		char[][] plateau = new char[C][L];
 		for(int x = 0 ; x < C ; x++){
             for(int y = 0 ; y < L ; y++){
-                plateau[x][y] = '.';
+                plateau[x][y] = ' ';
             }
         }
 		int gagnant = 0;
 		for(int i = 1 ; i <= C*L ; i++){
 			System.out.println("Tour " + i + ", Etat du plateau :");
 			
-			for(int loop = 0 ; loop < C+2+2*C ; loop++)System.out.print('-');
-            System.out.println();
-			
 			for(int y = 0 ; y < L ; y++){
-				System.out.print('|');
+				System.out.print('#');
 				for(int x = 0 ; x < C ; x++){
 					System.out.print(" " + plateau[x][y] + " ");
 				}
-				System.out.print('|');
+				System.out.print('#');
 				System.out.println();
 			}
 			
-			for(int loop = 0 ; loop < C+2+2*C ; loop++)System.out.print('-');
+			for(int loop = 0 ; loop < 3*C+2 ; loop++)System.out.print('#');
             System.out.println();
 			
 			System.out.println("Tour du joueur " + (i%2==1 ? 'X' : 'O') );
@@ -46,7 +43,7 @@ public class Main {
 					colonne = Integer.valueOf(ligne);
 					
 					if(colonne >= 1 && colonne <= C){
-						if(plateau[colonne - 1][0] != '.'){
+						if(plateau[colonne - 1][0] != ' '){
 							System.out.println("Colonne pleine, réitérez");
 						} else {
 							placement = true;
@@ -59,7 +56,7 @@ public class Main {
 				
 			}
 			int rang = L-1;
-			while(plateau[colonne - 1][rang] != '.'){
+			while(plateau[colonne - 1][rang] != ' '){
 				rang--;
 			}
 			plateau[colonne - 1][rang] = (i%2==1 ? 'X' : 'O');
@@ -125,19 +122,19 @@ public class Main {
 		System.out.println("*********************");
 		
 		
-		for(int loop = 0 ; loop < C+2+2*C ; loop++)System.out.print('-');
+		for(int loop = 0 ; loop < C+2+2*C ; loop++)System.out.print(' ');
 		System.out.println();
 		
 		for(int y = 0 ; y < L ; y++){
-			System.out.print('|');
+			System.out.print('#');
 			for(int x = 0 ; x < C ; x++){
 				System.out.print(" " + plateau[x][y] + " ");
 			}
-			System.out.print('|');
+			System.out.print('#');
 			System.out.println();
 		}
 		
-		for(int loop = 0 ; loop < C+2+2*C ; loop++)System.out.print('-');
+		for(int loop = 0 ; loop < C+2+2*C ; loop++)System.out.print('#');
 		System.out.println();
 			
 	}
