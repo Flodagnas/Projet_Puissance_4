@@ -1,189 +1,145 @@
 package puissance4;
 
-class Puissance4{
+import java.util.Scanner;
 
-    // Initialisation de la matrice de donnees
-    public static void initPlateau ( int [][] matrice ){
-        for ( int col = 0 ; col < matrice.length ; col ++){
-            for ( int lig = 0 ; lig < matrice[0].length ; lig ++){
-                matrice [ col ] [ lig ] = 0;
+public class Main {
+
+	public static void main(String[] args) {
+		Scanner scanner = new Scanner(System.in);
+		
+		int N = 4;
+		int C = 8;
+		int L = 6;
+		char[][] plateau = new char[C][L];
+		for(int x = 0 ; x < C ; x++){
+            for(int y = 0 ; y < L ; y++){
+                plateau[x][y] = ' ';
             }
         }
-    }
+		int gagnant = 0;
+		for(int i = 1 ; i <= C*L ; i++){
+			System.out.println("Tour " + i + ", Etat du plateau :");
+			
+			for(int y = 0 ; y < L ; y++){
+				System.out.print(" #");
+				for(int x = 0 ; x < C ; x++){
+					System.out.print(" " + plateau[x][y] + " ");
+				}
+				System.out.print('#');
+				System.out.println();
+			}
+			System.out.print(" ");
+			for(int loop = 0 ; loop < 3*C+2 ; loop++)System.out.print('#');
+			System.out.print('\n');
+			for(int loop2 = 0 ; loop2 < C+2 ; loop2++)System.out.print(loop2 + "  " );
+			System.out.print('\n');
+            System.out.println();
+			
+			System.out.println("Tour du joueur " + (i%2==1 ? 'X' : 'O') );
+			System.out.println("Entrez le chiffre de la colonne entre 1 et " + C + " ...");
+			boolean placement = false;
+			int colonne = -1;
+			while(!placement){
+				colonne = -1;
+				String ligne = scanner.nextLine();
+				try{
+					colonne = Integer.valueOf(ligne);
+					
+					if(colonne >= 1 && colonne <= C){
+						if(plateau[colonne - 1][0] != ' '){
+							System.out.println("Colonne pleine, réitérez");
+						} else {
+							placement = true;
+						}
+					} else {
+						System.out.println("Nombre incorrect, réitérez");
+					}
+					
+				}catch(Exception e){System.out.println("Nombre incorrect, réitérez");}
+				
+			}
+			int rang = L-1;
+			while(plateau[colonne - 1][rang] != ' '){
+				rang--;
+			}
+			plateau[colonne - 1][rang] = (i%2==1 ? 'X' : 'O');
+			
+			
+			
+			char symbole = (i%2==1 ? 'X' : 'O');
+			int max = 0;
+			int x; int y;
+			int somme;
+			
+			//-->  diagonale HG-BD
+			x = colonne-1; y = rang; somme=-1;
+			while(y >= 0 && x >= 0 && plateau[x][y] == symbole){ y--; x--; somme++;}
+			x = colonne-1; y = rang;
+			while(y < L && x < C && plateau[x][y] == symbole){ y++; x++; somme++;}
+			if(somme > max) max= somme;
+			
+			//-->  diagonale HD-BG
+			x = colonne-1; y = rang; somme=-1;
+			while(y >= 0 && x < C && plateau[x][y] == symbole){ y--; x++; somme++;}
+			x = colonne-1; y = rang;
+			while(y < L && x >= 0 && plateau[x][y] == symbole){ y++; x--; somme++;}
+			if(somme > max) max= somme;
+			
+			//-->  verticale:
+			x = colonne-1; y = rang; somme=-1;
+			while(y >= 0 && plateau[x][y] == symbole){ y--; somme++;}
+			y = rang;
+			while(y < L && plateau[x][y] == symbole){ y++; somme++;}
+			if(somme > max) max= somme;
+			
+			//-->  horizontale:
+			x = colonne-1; y = rang; somme=-1;
+			while(x >= 0 && plateau[x][y] == symbole){ x--; somme++;}
+			x = colonne-1;
+			while(x < C && plateau[x][y] == symbole){ x++; somme++;}
+			if(somme > max) max= somme;
+			
+			
+			if(max >= N){
+				gagnant = (i%2==1 ? 1 : 2);
+				i = C*L+1;
+			}
+			
+			
+			
+			
+			System.out.println("********************************");
+		}
+		
+		
+		System.out.println();
+		System.out.println("*********************");
+		System.out.println("****FIN DE PARTIE****");
+		System.out.println("*********************");
+		if(gagnant == 0)
+			System.out.println("*******EGALITE*******");
+		if(gagnant == 1)
+			System.out.println("****VICTOIRE DE X****");
+		if(gagnant == 2)
+			System.out.println("****VICTOIRE DE O****");
+		System.out.println("*********************");
+		
+		
+		for(int loop = 0 ; loop < C+2+2*C ; loop++)System.out.print(' ');
+		System.out.println();
+		
+		for(int y = 0 ; y < L ; y++){
+			System.out.print('#');
+			for(int x = 0 ; x < C ; x++){
+				System.out.print(" " + plateau[x][y] + " ");
+			}
+			System.out.print('#');
+			System.out.println();
+		}
+		
+		for(int loop = 0 ; loop < C+2+2*C ; loop++)System.out.print('#');
+		System.out.println();
+			
+	}
 
-
-    // fonction qui reconnait 4 cases verticales
-    //joueur 1
-    public static boolean verticalJ1(int [][] plateau){
-        boolean alignement = false;
-        for (int i = 0; i<7 ; i=i+1){
-            for (int j = 0; j<3;j=j+1){
-                if (plateau [j][i] == plateau [j+1][i] && plateau [j][i] == plateau [j+2][i] && plateau [j][i] == plateau [j+3][i] && plateau [j][i] == 1){
-                    alignement=true;
-                }
-            }
-        }
-        return alignement;
-    }
-
-    // joueur 2
-    public static boolean verticalJ2(int [][] plateau){
-        boolean alignement = false;
-        for (int i = 0; i<7 ; i=i+1){
-            for (int j = 0; j<3;j=j+1){
-                if (plateau [i][j] == plateau [i+1][j] && plateau [i][j] == plateau [i+2][j] && plateau [i][j] == plateau [i+3][j] && plateau [i][j] == 2){
-                    alignement=true;
-                }
-            }
-        }
-        return alignement;
-    }
-
-    // fonction qui reconnait 4 cases horizontales
-    //joueur 1
-    public static boolean horizontalJ1(int [][] plateau){
-        boolean alignement = false;
-        for (int i = 0; i<6 ; i=i+1){
-            for (int j = 0; j<4;j=j+1){
-                if (plateau [i][j] == plateau [i][j+1] && plateau [i][j] == plateau [i][j+2] && plateau [i][j] == plateau [i][j+3] && plateau [i][j] == 1){
-                    alignement=true;
-                }
-            }
-        }
-        return alignement;
-    }
-
-    //joueur 2
-    public static boolean horizontalJ2(int [][] plateau){
-        boolean alignement = false;
-        for (int i = 0; i<6 ; i=i+1){
-            for (int j = 0; j<4;j=j+1){
-                if (plateau [i][j] == plateau [i][j+1] && plateau [i][j] == plateau [i][j+2] && plateau [i][j] == plateau [i][j+3] && plateau [i][j] == 2){
-                    alignement=true;
-                }
-            }
-        }
-        return alignement;
-    }
-
-    // fonction qui reconnait 4 cases diagonales
-    // joueur 1
-    public static boolean diagonal1(int [][] plateau){
-        boolean alignement=false;
-        for (int i=0; i<3;i=i+1){
-            for(int j=0;j<4;j=j+1){
-                if (plateau[i][j]==plateau[i+1][j+1] && plateau[i][j]==1 && plateau[i][j]==plateau[i+2][j+2] && plateau[i][j]==plateau[i+3][j+3]){
-                    alignement=true;
-                }
-            }
-        }
-        return alignement;
-    }
-
-
-
-    public static boolean diagonal2(int [][] plateau){
-        boolean alignement=false;
-        for(int i=0; i>3;i=i-1){
-            for (int j;j<4;j=j+1){
-                if (plateau[i][j]==plateau[i-1][j+1] && plateau[i][j]==plateau[i-2][j+2] && plateau[i][j]==plateau[i-3][j+3] && plateau[i][j]==1){
-                    alignement=true;
-                }
-            }
-        }
-        return alignement;
-    }
-
-    //joueur2
-
-
-    public static boolean diag1(int[] [] plateau){
-        boolean alignement=false;
-        for (int i=0; i<3;i=i+1){
-            for(int j=0;j<4;j=j+1){
-                if (plateau[i][j]==plateau[i+1][j+1] && plateau[i][j]==2 && plateau[i][j]==plateau[i+2][j+2] && plateau[i][j]==plateau[i+3][j+3]){
-                    alignement=true;
-                }
-            }
-        }
-        return alignement;
-    }
-
-
-
-    public static boolean diag2(int[][] plateau){
-        boolean alignement=false;
-        for(int i=0; i>3;i=i-1){
-            for (int j;j<4;j=j+1){
-                if(plateau[i][j]==plateau[i-1][j+1] && plateau[i][j]==plateau[i-2][j+2] && plateau[i][j]==plateau[i-3][j+3] && plateau[i][j]==2){
-                    alignement=true;
-                }
-            }
-        }
-        return alignement;
-    }
-
-    public static void main (String [] Argv ){
-        
-        int nbColonnes = 7 ; // <=> largeur , abscisse ( x )
-        int nbLignes = 6 ; // <=> hauteur , ordonnee ( y )
-        int [][] plateau = new int [ nbColonnes ] [ nbLignes ] ;
-
-        int [] hauteur = new int [7];// variable précisant le hauteur
-        for (int i=0;i<7;i=i+1){
-            hauteur [i] = 0;
-        }
-
-        final int J1 = 1 ; // joueur 1
-        final int J2 = 2 ; // joueur 2
-
-        // Initialisation des cases du plateau à 0
-        initPlateau (plateau) ;
-
-        // initialisation de l’interface graphique
-        Puissance4GUI gui = new Puissance4GUI ( plateau);
-
-        gui.modifierMessage ( "Le jeu commence!" ) ;
-
-        System.out.println ( "Appuyer sur ENTREE pour continuer " ) ;
-        Saisie.litexte ();
-
-        int nbcase=0;
-
-        while (nbcase!=42 ){
-
-            System.out.println ( "Joueur 1 : choisissez le colonne où vous voulez placer le jeton " ) ;
-            int numColonne = Saisie.litentier();
-            int colonne = numColonne-1;
-            if (hauteur[numColonne-1] > 5){
-                System.out.println ( "Joueur 1 : la colonne" +colonne+ "est pleine! Choisissez une autre colonne") ;
-                numColonne= Saisie.litentier();
-                plateau [hauteur[numColonne-1]] [numColonne-1] = J1;
-                gui.rafraichirCase ( hauteur[numColonne-1] , numColonne-1) ;
-            }
-            else{
-                plateau [hauteur[numColonne-1]] [numColonne-1] = J1;
-                gui.rafraichirCase ( hauteur[numColonne-1] , numColonne-1) ;
-            }
-
-            hauteur[numColonne-1] = hauteur[numColonne-1]+1;
-
-
-
-            System.out.println ( "Joueur 2 : choisissez le colonne où vous voulez placer le jeton " ) ;
-            numColonne= Saisie.litentier();
-            if (hauteur[numColonne-1] > 5){
-                System.out.println ( "Joueur 2 : la colonne" +colonne+" est pleine!choisissez une autre colonne") ;
-                numColonne = Saisie.litentier();
-                plateau [hauteur[numColonne-1]] [numColonne-1] = J2;
-                hauteur[numColonne-1] = hauteur[numColonne-1]+1;
-                gui.rafraichirCase ( hauteur[numColonne-1] , numColonne-1) ;
-            }
-            else{
-                plateau [hauteur[numColonne-1]] [numColonne-1] = J2;
-                hauteur[numColonne-1] = hauteur[numColonne-1]+1;
-                gui.rafraichirCase ( hauteur[numColonne-1] , numColonne-1) ;
-            }
-        }
-    }
 }
