@@ -30,10 +30,13 @@ public class Main {
 			}
 			
 			for(int loop = 0 ; loop < 3*C+2 ; loop++)System.out.print('#');
+			System.out.print('\n');
+			for(int loop2 = 1 ; loop2 < C+1 ; loop2++)System.out.print("  " + loop2);
+			System.out.print('\n');
             System.out.println();
 			
 			System.out.println("Tour du joueur " + (i%2==1 ? 'X' : 'O') );
-			System.out.println("Entrez le numéro de la colonne entre 1 et " + C + " ...");
+			System.out.println("Entrez le chiffre de la colonne entre 1 et " + C + " ...");
 			boolean placement = false;
 			int colonne = -1;
 			while(!placement){
