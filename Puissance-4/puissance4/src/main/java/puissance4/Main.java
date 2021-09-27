@@ -21,17 +21,17 @@ public class Main {
 			System.out.println("Tour " + i + ", Etat du plateau :");
 			
 			for(int y = 0 ; y < L ; y++){
-				System.out.print('#');
+				System.out.print(" #");
 				for(int x = 0 ; x < C ; x++){
 					System.out.print(" " + plateau[x][y] + " ");
 				}
 				System.out.print('#');
 				System.out.println();
 			}
-			
+			System.out.print(" ");
 			for(int loop = 0 ; loop < 3*C+2 ; loop++)System.out.print('#');
 			System.out.print('\n');
-			for(int loop2 = 1 ; loop2 < C+1 ; loop2++)System.out.print("  " + loop2);
+			for(int loop2 = 0 ; loop2 < C+2 ; loop2++)System.out.print(loop2 + "  " );
 			System.out.print('\n');
             System.out.println();
 			
