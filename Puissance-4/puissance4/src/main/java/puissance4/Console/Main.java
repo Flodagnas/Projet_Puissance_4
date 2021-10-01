@@ -16,6 +16,7 @@ public class Main {
                 plateau[x][y] = ' ';
             }
         }
+
 		int gagnant = 0;
 		for(int i = 1 ; i <= C*L ; i++){
 			System.out.println("Tour " + i + ", Etat du plateau :");
@@ -25,6 +26,7 @@ public class Main {
 				for(int x = 0 ; x < C ; x++){
 					System.out.print(" " + plateau[x][y] + " ");
 				}
+				
 				System.out.print('#');
 				System.out.println();
 			}
@@ -108,7 +110,7 @@ public class Main {
 			
 			
 			
-			System.out.println("********************************");
+			System.out.println("---------------------------------------------------------------------");
 		}
 		
 		
