@@ -44,6 +44,7 @@ public class Main {
 			while(!placement){
 				colonne = -1;
 				String ligne = scanner.nextLine();
+				String ligne_test = message.read()
 				try{
 					colonne = Integer.valueOf(ligne);
 					
@@ -140,8 +141,6 @@ public class Main {
 		}
 		
 		for(int loop = 0 ; loop < C+2+2*C ; loop++)System.out.print('#');
-		System.out.println();
-			
+		System.out.println();	
 	}
-
 }

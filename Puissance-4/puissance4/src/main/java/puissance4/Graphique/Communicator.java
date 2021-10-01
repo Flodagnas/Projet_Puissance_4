@@ -79,7 +79,6 @@ public class Communicator {
         catch(IOException e){
             System.err.println("Could not launch server : " + e.getMessage());
         }
-        
     }
 
     public void connect(String address) throws IOException{
@@ -98,8 +97,7 @@ public class Communicator {
         }
         catch(UnsupportedEncodingException e){
             System.err.println("Unsupported encoding ! " + e.getMessage());
-        }
-        
+        }  
     }
 
     public String read(){
@@ -117,8 +115,7 @@ public class Communicator {
         catch(IOException e){
             System.err.println("Could not read from socket : " + e.getMessage());;
         }
-        return "";
-        
+        return ""; 
     }
 
     public void close(){
@@ -127,8 +124,6 @@ public class Communicator {
         }
         catch(IOException e){
             System.err.println("Could not close socket");
-        }
-        
+        }  
     }
-
 }

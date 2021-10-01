@@ -30,8 +30,7 @@ public class Server {
         }
         catch(IOException e){
             System.err.println("Could not launch server : " + e.getMessage());
-        }
-        
+        } 
     }
 
     public String read(){
@@ -50,8 +49,7 @@ public class Server {
         catch(IOException e){
             System.err.println("Could not read from socket : " + e.getMessage());;
         }
-        return "";
-        
+        return "";      
     }
 
     public void close(){
@@ -60,7 +58,6 @@ public class Server {
         }
         catch(IOException e){
             System.err.println("Could not close socket");
-        }
-        
+        }       
     }
 }

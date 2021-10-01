@@ -19,7 +19,6 @@ public class Client {
         catch(IOException e){
             System.err.println("Could not connect to host " + e.getMessage());
         }
-        
     }
 
     public void connect() throws IOException{
@@ -39,8 +38,7 @@ public class Client {
         }
         catch(UnsupportedEncodingException e){
             System.err.println("Unsupported encoding ! " + e.getMessage());
-        }
-        
+        } 
     }
 
     public void close(){
@@ -50,6 +48,5 @@ public class Client {
         catch(IOException e){
             System.err.println("Could not close socket");
         }
-        
     }
 }
