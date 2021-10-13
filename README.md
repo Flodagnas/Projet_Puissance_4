@@ -7,11 +7,10 @@ Le lien du github de notre projet : https://github.com/Flodagnas/Projet_Puissanc
 
 
 1) [Le projet](#projet)
-2) [Son intérêt](#interet)
-3) [Son utilisation](#utilisation)
-4) [Les détails de notre code](#detail)
-5) [La répartition du travail entre nous](#reparti)
-6) [Ce qu'on aurait pu améliorer](#ameliorer)
+2) [Son utilisation](#utilisation)
+3) [Les détails de notre code](#detail)
+4) [La répartition du travail entre nous](#reparti)
+5) [Ce qu'on aurait pu améliorer](#ameliorer)
 
 
 ## Le projet : <a id="projet"></a>
