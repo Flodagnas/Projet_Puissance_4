@@ -7,3 +7,9 @@
 ## Répartition du travail
 
 ## Groupe
+
+Ce projet a été conçu par Mathis VERON et Florian DAGNAS
+
+## Lien utile
+
+Lien du git: https://github.com/Flodagnas/Projet_Puissance_4
