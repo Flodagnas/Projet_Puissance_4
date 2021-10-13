@@ -1,4 +1,4 @@
-package puissance4;
+package puissance4.Console;
 
 import java.util.Scanner;
 
@@ -7,6 +7,20 @@ public class Main {
 	public static void main(String[] args) {
 		Scanner scanner = new Scanner(System.in);
 		
+
+		/*System.out.println("Jeu en local \nJeu en reseau \nOptions \nQuitter \n ");
+        java.io.InputStreamReader isr = new java.io.InputStreamReader(System.in);
+        java.io.BufferedReader br = new java.io.BufferedReader(isr);
+        try {
+        String firstNumber = br.readLine();
+        int a = Integer.parseInt(firstNumber);
+		        catch(java.io.IOException e) {
+            System.err.println("Something went HORRIBLY wrong: Bidoof " + e.getMessage());
+        }   
+
+		}*/
+
+
 		int N = 4;
 		int C = 8;
 		int L = 6;
@@ -44,6 +58,7 @@ public class Main {
 			while(!placement){
 				colonne = -1;
 				String ligne = scanner.nextLine();
+				String ligne_test = message.read()
 				try{
 					colonne = Integer.valueOf(ligne);
 					
@@ -110,21 +125,21 @@ public class Main {
 			
 			
 			
-			System.out.println("---------------------------------------------------------------------");
+			System.out.println("-------------------------------------------------");
 		}
 		
 		
 		System.out.println();
-		System.out.println("*********************");
-		System.out.println("****FIN DE PARTIE****");
-		System.out.println("*********************");
+		System.out.println("---------------------");
+		System.out.println("----FIN DE PARTIE----");
+		System.out.println("---------------------");
 		if(gagnant == 0)
-			System.out.println("*******EGALITE*******");
+			System.out.println("-------EGALITE-------");
 		if(gagnant == 1)
-			System.out.println("****VICTOIRE DE X****");
+			System.out.println("----VICTOIRE DE X----");
 		if(gagnant == 2)
-			System.out.println("****VICTOIRE DE O****");
-		System.out.println("*********************");
+			System.out.println("----VICTOIRE DE O----");
+		System.out.println("---------------------");
 		
 		
 		for(int loop = 0 ; loop < C+2+2*C ; loop++)System.out.print(' ');
@@ -140,8 +155,6 @@ public class Main {
 		}
 		
 		for(int loop = 0 ; loop < C+2+2*C ; loop++)System.out.print('#');
-		System.out.println();
-			
+		System.out.println();	
 	}
-
 }
