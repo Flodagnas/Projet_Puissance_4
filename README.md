@@ -1,7 +1,7 @@
 # Projet Java
 
 
-Travail de groupe :  Peanut Butter / Mathis Véron
+Travail de groupe :  Florian Dagnas / Mathis Véron
 
 Le lien du github de notre projet : https://github.com/Flodagnas/Projet_Puissance_4
 
