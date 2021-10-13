@@ -21,13 +21,13 @@ Ce projet a été conçu par Mathis VERON et Florian DAGNAS
 ```
     Mathis VERON
     - JavaFx
-    - Aide pour le jeu en graphique
+    - Jeu en graphique
     - Aide pour le jeu dans le terminal
 ```
 
 ```
     Florian DAGNAS
-    - Jeu en graphique (avec aide)
+    - Aide pour le jeu en graphique
     - Jeu dans le terminal (avec aide)
 ```
 ## Lien utile
