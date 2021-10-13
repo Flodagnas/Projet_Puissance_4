@@ -12,11 +12,11 @@ Seul le JAVA a été utiliser comme language de codage.
 
 ## Comment lancer le puissance 4 ?
 
-## Répartition du travail
-
 ## Groupe
 
 Ce projet a été conçu par Mathis VERON et Florian DAGNAS
+
+## Répartition du travail
 
 ## Lien utile
 
