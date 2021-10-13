@@ -18,6 +18,18 @@ Ce projet a été conçu par Mathis VERON et Florian DAGNAS
 
 ## Répartition du travail
 
+```
+    Mathis VERON
+    - JavaFx
+    - Aide pour le jeu en graphique
+    - Aide pour le jeu dans le terminal
+```
+
+```
+    Florian DAGNAS
+    - Jeu en graphique (avec aide)
+    - Jeu dans le terminal (avec aide)
+```
 ## Lien utile
 
 Lien du git: https://github.com/Flodagnas/Projet_Puissance_4
