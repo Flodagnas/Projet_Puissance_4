@@ -69,7 +69,7 @@ de faire fonctionner un puissance 4 avec une interface graphique.
 ```
     Florian DAGNAS
     - Aide pour le jeu en graphique
-    - Jeu dans le terminal (avec aide)
+    - Jeu dans le terminal
 ```
 
 ## Ce qu'on aurait pu améliorer : <a id="ameliorer"></a>
