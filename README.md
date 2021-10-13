@@ -36,7 +36,7 @@ Ce puissance 4 est simple d'utilisation:
 Une fois le jeu lancé, un menu s'ouvre avec la possibilité de choisir entre jouer à 2, et jouer contre l'ordinateur:
 ![image](https://cdn.discordapp.com/attachments/408320873876160522/897937771287687178/unknown.png)
 
-Ensuite, le nom (ou les nom) des joueurs sera demandé:
+Ensuite, le nom (ou les noms) des joueurs sera demandé:
 
 ![image](https://cdn.discordapp.com/attachments/408320873876160522/897938099059949618/unknown.png)
 
@@ -54,8 +54,8 @@ Notre code est composé de 2 parties: la partie terminal, et la partie interface
 
 Console : Ce code est situé dans le dossier "Console", c'est grâce a lui qu'il est possible de jouer au puissance 4 sur la console de VS code. 
 
-Interface Graphique : Stylisé la page web.
-
+Interface Graphique : Ce code est situé dans le dossier "InterfaceGraphique", c'est ce dossier et son ensemble de fichier qui permet 
+de faire fonctionner un puissance 4 avec une interface graphique.
 
 ## La répartition du travail entre nous : <a id="reparti"></a>
 
