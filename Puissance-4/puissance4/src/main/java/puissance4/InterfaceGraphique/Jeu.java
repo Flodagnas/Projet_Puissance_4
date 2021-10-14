@@ -53,34 +53,34 @@ public class Jeu {
 
 	public boolean cherche4() {
 
-	    for (int ligne = 0; ligne < taille; ligne++) {
-	    	if (cherche4alignes(0, ligne, 1, 0)) {
+	    for (int col = 0; col < taille; col++) {
+	    	if (cherche4alignes(0, col, 1, 0)) {
 	    		return true;
 	    	}
 	    }
 
 
-    for (int col = 0; col < taille; col++) {
-    	if (cherche4alignes(col, 0, 0, 1)) {
+    for (int ligne = 0; ligne < taille; ligne++) {
+    	if (cherche4alignes(ligne, 0, 0, 1)) {
     		return true;
     	}
     }
 
 
-    for (int col = 0; col < taille; col++) {
-		  if (cherche4alignes(col, 0, 1, 1)) {
+    for (int ligne = 0; ligne < taille; ligne++) {
+		  if (cherche4alignes(ligne, 0, 1, 1)) {
 			  return true;
 		  }
-		  if (cherche4alignes(col, 0, -1, 1)) {
+		  if (cherche4alignes(ligne, 0, -1, 1)) {
 			  return true;
 		  }
     }
 
-    for (int ligne = 0; ligne < taille; ligne++) {
-    	if (cherche4alignes(0, ligne, 1, 1)) {
+    for (int col = 0; col < taille; col++) {
+    	if (cherche4alignes(0, col, 1, 1)) {
     		return true;
 	    }
-	    if (cherche4alignes(taille - 1, ligne, -1, 1)) {
+	    if (cherche4alignes(taille - 1, col, -1, 1)) {
 	    	return true;
 	    }
     }
