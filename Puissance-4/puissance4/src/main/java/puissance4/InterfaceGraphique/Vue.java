@@ -16,7 +16,7 @@ public class Vue extends JFrame{
 	JPanel layout = new JPanel();
 	private int taille;
 	private CirclePanel[][] grille;
-	public final static ActionListener clic = new ClicEvent();;
+	public final static ActionListener clic = new Clic();;
 
     public Vue(int taille)
     {
